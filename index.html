@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Periodic Table Information Finder</title>
+    
+    <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css">
+    <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+    <!-- container, boxes, styling in general -->
+    <style> 
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f4f7;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 25px 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 650px;
+        }
+
+        .card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 12px;
+            color: #222;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 28px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #333;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #222;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #444;
+        }
+
+        .results {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f8f9fb;
+            border: 1px solid #e1e4e8;
+            border-radius: 10px;
+        }
+
+        .result-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            line-height: 1.6;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-label {
+            font-weight: bold;
+            color: #444;
+        }
+
+        .result-value {
+            color: #1746a2;
+        }
+
+        #message {
+            text-align: center;
+            margin-top: 18px;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 24px;
+            }
+
+            h1 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="card">
+
+            <h1>Periodic Table Information Finder</h1>
+            <p class="subtitle">Non-Metal Element Information</p>
+
+            <label for="Element1">Element Symbol</label>
+            <input
+                type="text"
+                id="Element1"
+                placeholder="Enter an element symbol (e.g. O, H, Cl)"
+            >
+
+            <button py-click="find_element">
+                Search Element
+            </button>
+
+            <div class="results">
+                <h3>Element Information</h3>
+
+                <div class="result-item">
+                    <span class="result-label">Element Symbol:</span>
+                    <span class="result-value" id="symbol_output">-</span>
+                </div>
+
+                <div class="result-item">
+                    <span class="result-label">Element Name:</span>
+                    <span class="result-value" id="name_output">-</span>
+                </div>
+
+                <div class="result-item">
+                    <span class="result-label">Atomic Number:</span>
+                    <span class="result-value" id="number_output">-</span>
+                </div>
+
+                <div class="result-item">
+                    <span class="result-label">Atomic Mass:</span>
+                    <span class="result-value" id="mass_output">-</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Connect Python file -->
+    <script type="py" src="main.py"></script>
+
+</body>
+</html>

@@ -29,9 +29,9 @@ def find_element(event):
     result = Elements.get(
         Element1,
         ("Element not found", "-", "-")
-    )
+    ) # defining the event when you click on the button in index.html
 
     document.getElementById("symbol_output").innerText = Element1
     document.getElementById("name_output").innerText = result[0]
     document.getElementById("number_output").innerText = result[1]
-    document.getElementById("mass_output").innerText = result[2]
+    document.getElementById("mass_output").innerText = result[2] #Taking from the dict to change the "-" in each respective segment.
